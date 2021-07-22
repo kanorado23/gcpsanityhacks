@@ -1,0 +1,31 @@
+- Why would you use this:
+    - Verify that the Node app is still running / sanity check
+    - Cloud Logging at times doesn’t give the same output that we want to see (yes it is possible and available, this is not included in this document)
+    - To be able to see more detailed logs, with current state code base that's up in the VM
+    - If App Engine Cron Job says it fails and you are looking to validate or verify it
+- Log into to Google Cloud 
+- Select the google project you are looking at
+- Go to App Engine
+- Then go to Versions
+- Logs
+    - Logging output
+- Source
+    - This will take you to the actual source code
+    - To note >> This is different than Google Source Repositories 
+- Config:
+    - What the AppEngine is provisioned to
+        - Use Standard
+        - Flexible - is not flexible
+- Let’s say we are interested in validating the last time the cron ran. 
+    - Open the following google service: App Engine Cron Jobs
+    - You can hit “run” from this point and it will automatically run the codebase
+    - Then, the results show “fail” - validate the failure
+- Open up a google cloud terminal (>icon on the top right)
+    - This will provision a terminal for your
+    - Confirm that this is pointing to the Google Cloud Project you are interested in
+    - Gcloud config list project
+        - If it’s not pointing to the project you are interested in then type in the following:
+        - Gcloud config set project <projectname>
+    - After verifying you are pointing to the correct project with the AppEngine instance you are looking to debug / validate, run the following command in the terminal:
+        - gcloud app logs tail -s default
+        - this will show logging output of the code base
