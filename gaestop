@@ -1,0 +1,26 @@
+Why you would use this:
+- you need to stop an instance of Google App Engine
+
+This can be done via the GCP UI, however during various deployments, noticed behavior where even though the instance is stopped, it was still firing code. 
+
+To do this from terminal (either Google Cloud terminal, local terminal or in VS Code)
+
+Verify where you are pointing:
+gcloud config list project
+
+Let's see what versions GCP is showing with the following command:
+gcloud app versions
+this will output all versions and version IDs under this instance - and it will show you which are "stopped" and "serving"
+
+Now, let's stop the "serving" version:
+gclooud app version stop <version id>
+
+It will prompt you with a Y/n
+
+After terminal confirms it's done, refresh your browser in app engine and you will see it is no longer serving traffic
+
+**Important to note**
+GAE automatically deploys a Google Cloud Storage bucket associated with your project 
+This is part of the low-code infrastructure solution, otherwise we'd have to spin up Kubernetes buckets and manage this on our own. It's part of what we pay for and their services.
+Don't delete the bucket if you see it in GCS. 
+It will look like something like this: us.artifacts.projectname.appspot.com
