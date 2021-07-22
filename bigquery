@@ -1,0 +1,25 @@
+Conditions:
+- BigQuery data transfer from cloud storage of file
+- Schema in cloud storage file changes
+
+
+How to debug:
+- Within the BigQuery DataTransfer services it will show an error (bright red !)
+- Click into this
+- Open up the Google Cloud Terminal
+- Verify you are in the correct GCP project with the following command: gcloud config list project
+- In the error message provided by BQ, there's a super long UID that we are going to leverage to debug
+- After verifying you are in the correct GCP, type the following into the shell terminal:
+
+- bq show j -<Insert the UID here>
+- click "accept" when prompted
+
+This will output error messaging of what failed
+
+
+Condition: 
+- I want BigQuery to tellme what my table's schema is, versus manually typing in the schema 
+
+How to solve: 
+- In the BigQuery UI, create a new table
+- Put the table content into Google Cloud Storage - you must do CSV(not the easiest but does work
