@@ -20,13 +20,17 @@
 - Let’s say we are interested in validating the last time the cron ran. 
     - Open the following google service: App Engine Cron Jobs
     - You can hit “run” from this point and it will automatically run the codebase
-    - Then, the results show “fail” - validate the failure
+    - Then, the results show “fail” - let's validate the failure. 
+        -This could show "fail" based off the way the code is deployed initially.
 - Open up a google cloud terminal (>icon on the top right)
-    - This will provision a terminal for you to work with. You can do the same thing in VS code or in Terminal however you need to install the Google Cloud SDK which with Apple's BigSur it's become quite parsnickity. 
-    - First -- Confirm that this is pointing to the Google Cloud Project you are interested in with the following command:
+    - This will provision a terminal for you to work with. 
+        -You can do the same thing in VS code or in Terminal however you need to install the Google Cloud SDK which with Apple's BigSur it's become quite parsnickity. 
+    - First: confirm that this is pointing to the Google Cloud Project you are interested in with the following command:
         - Gcloud config list project
             - If it’s not pointing to the project you are interested in then type in the following:
-            - Gcloud config set project <projectname>
+            - Gcloud config set project <projectname> 
+                - It's the project name so the "pretty version" not the projectid 
         - After verifying you are pointing to the correct project with the AppEngine instance you are looking to debug / validate, run the following command in the terminal:
             - gcloud app logs tail -s default
-            - this will show logging output of the code base (assuming there's logging baked into the code that was deployed up to GAE)
+            - this will show logging output of the code base 
+                - (assuming there's logging baked into the code that was deployed up to GAE)
