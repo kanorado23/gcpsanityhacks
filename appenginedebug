@@ -25,6 +25,7 @@
 - Open up a google cloud terminal (>icon on the top right)
     - This will provision a terminal for you to work with. 
         -You can do the same thing in VS code or in Terminal however you need to install the Google Cloud SDK which with Apple's BigSur it's become quite parsnickity. 
+        -If you are working in GCP everyday, definitely install it. If not, use GCP terminal, you don't have to wrry about keeping the SDK up to date on your local machine.
     - First: confirm that this is pointing to the Google Cloud Project you are interested in with the following command:
         - Gcloud config list project
             - If it’s not pointing to the project you are interested in then type in the following:
